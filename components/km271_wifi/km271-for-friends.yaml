@@ -1,19 +1,11 @@
-# This is the configuration, I've put on the board.
-# If you apply voltage to it, the green LED D! serves as status led2
-# usually blinking with around 1 Hz. If you press button USER 1, it will
-# toggle green led D2.
-# To upload a new firmware, search for the "Fallback Hotspot" WiFi and
-# log in with password "Z8zfajgxVvNw". It could take up to a minute for
-# the fallack AP to be enabled when not able to connect to the "test"
-# wifi network. So, if status is blinking, give it a minute to show up.
 substitutions:
-  name: "km271-for-friends"
+  name: "buderus-km271"
 
 esphome:
   name: "${name}"
   # Automatically add the mac address to the name
   # so you can use a single firmware for all devices
-  name_add_mac_suffix: true
+  # name_add_mac_suffix: true
 
   platformio_options:
     upload_speed: 921600
@@ -23,9 +15,9 @@ esphome:
 
   # This will allow for (future) project identification,
   # configuration and updates.
-  project:
-    name: the78mole.km271-wifi
-    version: "1.0"
+  #project:
+  #  name: the78mole.km271-wifi
+  #  version: "1.0"
 
 esp32:
   board: esp32dev
@@ -51,7 +43,7 @@ wifi:
     password: ""
 
 dashboard_import:
-  package_import_url: github://the78mole/esphome_components/components/km271_wifi/km271-for-friends.yaml@main
+  package_import_url: github://man55/esphome_buderus/components/km271_wifi/km271-for-friends.yaml@main
 
 captive_portal:
 #  keep_user_credentials: true
@@ -63,7 +55,7 @@ uart:
   baud_rate: 2400
 
 external_components:
-  - source: github://the78mole/esphome_components@main
+  - source: github://man55/esphome_buderus@main
     components: [ km271_wifi ]
     refresh:    1sec
 #  - source:
@@ -113,152 +105,152 @@ binary_sensor:
   - platform: km271_wifi
     # Betriebswerte 1 HK1
     heating_circuit_1_switch_off_optimization:
-      name: "HK1 Ausschaltoptimierung"
+      name: "HK1 Оптимизация отключения"
     heating_circuit_1_switch_on_optimization:
-      name: "HK1 Einschaltoptimierung"
+      name: "HK1 Оптимизация включения"
     heating_circuit_1_automatic:
-      name: "HK1 Automatik"
+      name: "HK1 Авторежим"
     heating_circuit_1_ww_priority_processing:
       name: "HK1 Warmwasservorrang"
     heating_circuit_1_screed_drying:
-      name: "HK1 Estrichtrocknung"
+      name: "HK1 Приоритет ГВС"
     heating_circuit_1_holiday:
-      name: "HK1 Ferien"
+      name: "HK1 Отпуск"
     heating_circuit_1_antifreeze:
-      name: "HK1 Frostschutz"
+      name: "HK1 Защита от замерзания"
     heating_circuit_1_manually:
-      name: "HK1 Manuell"
+      name: "HK1 Ручной режим"
     # Betriebswerte 2 HK1
     heating_circuit_1_summer:
-      name: "HK1 Sommer-Modus"
+      name: "HK1 Летний режим"
     heating_circuit_1_day:
-      name: "HK1 Tag-Modus"
+      name: "HK1 Дневной режим"
     heating_circuit_1_no_comm_with_rc:
-      name: "HK1 Keine Kommunikation mit FB"
+      name: "HK1 Нет связи с ПУ"
     heating_circuit_1_rc_faulty:
-      name: "HK1 FB fehlerhaft"
+      name: "HK1 ПУ неисправность"
     heating_circuit_1_flow_sensor_error:
-      name: "HK1 Fehler Vorlauffuehler"
+      name: "HK1 Ошибка расходомера"
     heating_circuit_1_max_flow:
-      name: "HK1 Maximaler Vorlauf"
+      name: "HK1 Максимальный поток"
     heating_circuit_1_external_fault_input:
-      name: "HK1 Externer Stoereingang"
+      name: "HK1 Внешняя ошибка"
     # Betriebswerte 1 HK2
     heating_circuit_2_switch_off_optimization:
-      name: "HK2 Ausschaltoptimierung"
+      name: "HK2 Оптимизация отключения"
     heating_circuit_2_switch_on_optimization:
-      name: "HK2 Einschaltoptimierung"
+      name: "HK2 Оптимизация включения"
     heating_circuit_2_automatic:
-      name: "HK2 Automatik"
+      name: "HK2 Авторежим"
     heating_circuit_2_ww_priority_processing:
-      name: "HK2 Warmwasservorrang"
+      name: "HK2 Приоритет ГВС"
     heating_circuit_2_screed_drying:
-      name: "HK2 Estrichtrocknung"
+      name: "HK2 Сушка стяжки"
     heating_circuit_2_holiday:
-      name: "HK2 Ferien"
+      name: "HK2 Отпуск"
     heating_circuit_2_antifreeze:
-      name: "HK2 Frostschutz"
+      name: "HK2 Защита от замерзания"
     heating_circuit_2_manually:
-      name: "HK2 Manuell"
+      name: "HK2 Ручной режим"
     # Betriebswerte 2 HK2
     heating_circuit_2_summer:
-      name: "HK2 Sommer-Modus"
+      name: "HK2 Летний режим"
     heating_circuit_2_day:
-      name: "HK2 Tag-Modus"
+      name: "HK2 Дневной режим"
     heating_circuit_2_no_comm_with_rc:
-      name: "HK2 Keine Kommunikation mit FB"
+      name: "HK2 Нет связи с ПУ"
     heating_circuit_2_rc_faulty:
-      name: "HK2 FB fehlerhaft"
+      name: "HK2 ПУ неисправность"
     heating_circuit_2_flow_sensor_error:
-      name: "HK2 Fehler Vorlauffuehler"
+      name: "HK2 Ошибка расходомера"
     heating_circuit_2_max_flow:
-      name: "HK2 Maximaler Vorlauf"
+      name: "HK2 Максимальный поток"
     heating_circuit_2_external_fault_input:
-      name: "HK2 Externer Stoereingang"
+      name: "HK2 Внешняя ошибка"
     # Betriebswerte 1 WW
     ww_automatic:
-      name: "WW Automatik"
+      name: "ГВС Авторежим"
     ww_disinfection:
-      name: "WW Desinfektion"
+      name: "ГВС Дезинфекция"
     ww_reload:
-      name: "WW Nachladung"
+      name: "ГВС Перегрузка"
     ww_holiday:
-      name: "WW Ferien"
+      name: "ГВС Отпуск"
     ww_error_disinfection:
-      name: "WW Fehler Desinfektion"
+      name: "ГВС Ошибка дезинфекции"
     ww_error_sensor:
-      name: "WW Fehler Fuehler"
+      name: "ГВС Ошибка датчика"
     ww_error_stays_cold:
-      name: "WW Fehler WW bleibt kalt"
+      name: "Ошибка ГВС Остаётся холодной"
     ww_error_anode:
-      name: "WW Fehler Anode"
+      name: "ГВС Ошибка анода"
     # Betriebswerte 2 WW
     ww_loading:
-      name: "WW Laden"
+      name: "ГВС Загрузка"
     ww_manually:
-      name: "WW Manuell"
+      name: "ГВС Ручной режим"
     ww_reloading:
-      name: "WW Nachladen"
+      name: "ГВС Перезарядка"
     ww_switch_off_optimization:
-      name: "WW Ausschaltoptimierung"
+      name: "ГВС Оптимизация отключения"
     ww_switch_on_optimization:
-      name: "WW Einschaltoptimierung"
+      name: "ГВС Оптимизация включения"
     ww_day_mode:
-      name: "WW Tag Modus"
+      name: "ГВС Дневной режим"
     ww_post_processing:
-      name: "WW Nachbereitung"
+      name: "ГВС Постобработка"
     ww_priority_processing:
-      name: "WW Vorrangschaltung"
+      name: "ГВС Приоритет"
     # Kesselfehler
     error_burner_malfunction:
-      name: "Fehler Brennerstoerung"
+      name: "Ошибка Неисправность горелки"
     error_boiler_sensor:
-      name: "Fehler Kesselfuehler"
+      name: "Ошибка Датчик котла"
     error_additional_sensor:
-      name: "Fehler Zusatzfuehler"
+      name: "Ошибка Дополнительный датчик"
     error_boiler_stays_cold:
-      name: "Fehler Kessel bleibt kalt"
+      name: "Ошибка Котел остается холодным"
     error_exhaust_gas_sensor:
-      name: "Fehler Abgasfuehler"
+      name: "Ошибка Датчик выхлопных газов"
     error_exhaust_gas_over_limit:
-      name: "Fehler Abgas ueber Grenzwert"
+      name: "Ошибка Выхлопные газы выше предела"
     error_safety_chain_released:
-      name: "Fehler Sicherungskette ausgeloest"
+      name: "Ошибка Сработала предохранительная цепь"
     error_external_disturbance:
-      name: "Fehler Externe Stoerung"
+      name: "Ошибка Внешнее вмешательство"
     # Kesselbetrieb
     boiler_emission_test:
-      name: "Kessel Abgastest"
+      name: "Котёл Тест эмиссии"
     boiler_1st_stage_operation:
-      name: "Kessel Betrieb 1.Stufe"
+      name: "Работа 1-й ступени"
     boiler_protection:
-      name: "Kessel Schutz"
+      name: "Защита котла"
     boiler_under_operation:
-      name: "Kessel unter Betrieb"
+      name: "Котел работает"
     boiler_performance_free:
-      name: "Kessel Leistung frei"
+      name: "Котёл Производительность свободная"
     boiler_performance_high:
-      name: "Kessel Leistung hoch"
+      name: "Котёл Производительность высокая"
     boiler_2st_stage_operation:
-      name: "Kessel Betrieb 2.Stufe"
+      name: "Работа 2-й ступени"
     boiler_actuation:
-      name: "Brenneransteuerung"
+      name: "Котёл Контроль горелки"
   #Alarmstatus
     alarm_exhaust_gas_sensor:
-      name: "Alarm Abgasfuehler"
+      name: "Тревога Датчик выхлопных газов"
     alarm_boiler_flow_sensor:
-      name: "Alarm Kesselvorlauffuehler"
+      name: "Тревога Расходомер котла"
     alarm_burner:
-      name: "Alarm Brenner"
+      name: "Тревога Горелка"
     alarm_heating_circuit_2_flow_sensor:
-      name: "Alarm HK2 Vorlauffuehler"
+      name: "Тревога HK2 Расходомер"
   #Other stuff
     load_pump_running:
-      name: "Ladepumpenbetrieb"
+      name: "Нагрузочный насос работает"
     circulation_pump_running:
-      name: "Zirkulationspumpenbetrieb"
+      name: "Циркуляционный насос работает"
     solar_pump_lowering:
-      name: "Solarpumpe Absenkung"
+      name: "Понижение солнечного насоса"
 
 
 
@@ -305,145 +297,145 @@ button:
 number:
   - platform: km271_wifi
     config_ww_temperature:
-      name: "Warmwassersolltemperatur Tag"
+      name: "Целевая t°горячей воды днём"
       mode: slider
     config_frost_switch_temperature:
-      name: "Frost Umschalttemperatur"
+      name: "t° переключателя антизамерзания"
       mode: slider
 
     config_heating_circuit_1_room_target_temperature_night:
-      name: "Heizkreis 1 Raumsolltemperatur Nacht"
+      name: "Целевая t° ночью"
       mode: slider
     config_heating_circuit_1_room_target_temperature_day:
-      name: "Heizkreis 1 Raumsolltemperatur Tag"
+      name: "Целевая t° днём"
       mode: slider
     config_heating_circuit_1_holiday_target_temperature:
-      name: "Urlaubstemperatur"
+      name: "Целевая t° отпуска"
       mode: slider
     config_heating_circuit_1_flow_temperature_max:
-      name: "Heizkreis 1 Heizkreistemperatur Maximal"
+      name: "t° подачи"
       mode: slider
     config_heating_circuit_1_design_temperature:
-      name: "Heizkreis 1 Auslegungstemperatur"
+      name: "t° расчетная"
       mode: slider
     config_heating_circuit_1_room_temperature_offset:
-      name: "Heizkreis 1 Raumtemperatur Offset"
+      name: "Смещение комнатной t°"
       mode: slider
     config_heating_circuit_1_holiday_days:
-      name: "Heizkreis 1 Urlaubstage"
+      name: "Дней отпуска"
       mode: slider
 
     config_heating_circuit_2_room_target_temperature_night:
-      name: "HK2 Raumsolltemperatur Nacht"
+      name: "HK2 Целевая t° ночью"
       mode: slider
     config_heating_circuit_2_room_target_temperature_day:
-      name: "HK2 Raumsolltemperatur Tag"
+      name: "HK2 Целевая t° днём"
       mode: slider
     config_heating_circuit_2_holiday_target_temperature:
-      name: "Urlaubstemperatur"
+      name: "HK2 Целевая t° отпуска"
       mode: slider
     config_heating_circuit_2_flow_temperature_max:
-      name: "HK2 Heizkreistemperatur Maximal"
+      name: "HK2 t° подачи"
       mode: slider
     config_heating_circuit_2_design_temperature:
-      name: "HK2 Auslegungstemperatur"
+      name: "HK2 t° расчетная"
       mode: slider
     config_heating_circuit_2_room_temperature_offset:
-      name: "HK2 Raumtemperatur Offset"
+      name: "HK2 Смещение комнатной t°"
       mode: slider
     config_heating_circuit_2_holiday_days:
-      name: "HK2 Urlaubstage"
+      name: "HK2 Дней отпуска"
       mode: slider
 
 select:
   - platform: km271_wifi
     config_ww_operation_mode:
-      name: "Warmwasser Betriebsmodus"
+      name: "ГВС Режим работы"
     config_ww_circular_pump_interval:
-      name: "Warmwasser Zirkulationspumpenintervall"
+      name: "ГВС Интервал циркуляционного насоса"
 
     config_heating_circuit_1_summer_winter_switch_temperature:
-      name: "Heizkreis 1 Sommer Winter Umschalttemperatur"
+      name: "t° перехода зима-лето"
     config_heating_circuit_1_operation_mode:
-      name: "Heizkreis 1 Betriebsmodus"
+      name: "Режим работы контура"
     config_heating_circuit_1_lowering_type:
-      name: "Heizkreis 1 Absenkungsart"
+      name: "Тип понижения контура"
     config_heating_circuit_1_heating_system_type:
-      name: "Heizkreis 1 Heizsystem"
+      name: "Модель отопления"
     config_heating_circuit_1_heating_program:
-      name: "Heizkreis 1 Heizprogramm"
+      name: "Программа отопления"
 
     config_heating_circuit_2_summer_winter_switch_temperature:
-      name: "HK2 Sommer Winter Umschalttemperatur"
+      name: "HK2 t° перехода зима-лето"
     config_heating_circuit_2_operation_mode:
-      name: "HK2 Betriebsmodus"
+      name: "HK2 Режим работы контура"
     config_heating_circuit_2_lowering_type:
-      name: "HK2 Absenkungsart"
+      name: "HK2 Тип понижения контура"
     config_heating_circuit_2_heating_system_type:
-      name: "HK2 Heizsystem"
+      name: "HK2 Модель отопления"
     config_heating_circuit_2_heating_program:
-      name: "HK2 Heizprogramm"
+      name: "HK2 Программа отопления"
 
 sensor:
   - platform: km271_wifi
     heating_circuit_1_flow_target_temperature:
-      name: "HK1 Vorlaufsolltemperatur"
+      name: "Целевая t° подачи"
     heating_circuit_1_flow_temperature:
-      name: "HK1 Vorlaufisttemperatur"
+      name: "t° подачи"
     heating_circuit_1_room_target_temperature:
-      name: "HK1 Raumsolltemperatur"
+      name: "Целевая t° в доме"
     heating_circuit_1_room_temperature:
-      name: "HK1 Raumisttemperatur"
+      name: "t° в доме"
     heating_circuit_1_pump_power:
-      name: "HK1 Pumpenleistung"
+      name: "Мощность насоса"
     heating_circuit_1_mixer_position:
-      name: "HK1 Mischerstellung"
+      name: "Положение смесителя"
     heating_circuit_1_curve_p10:
-      name: "HK1 Heizkurve +10 °C"
+      name: "Кривая нагрева +10 °C"
     heating_circuit_1_curve_0:
-      name: "HK1 Heizkurve 0 °C"
+      name: "Кривая нагрева 0 °C"
     heating_circuit_1_curve_n10:
-      name: "HK1 Heizkurve -10 °C"
+      name: "Кривая нагрева -10 °C"
     heating_circuit_2_flow_target_temperature:
-      name: "HK2 Vorlaufsolltemperatur"
+      name: "HK2 Целевая t° подачи"
     heating_circuit_2_flow_temperature:
-      name: "HK2 Vorlaufisttemperatur"
+      name: "HK2 t° подачи"
     heating_circuit_2_room_target_temperature:
-      name: "HK2 Raumsolltemperatur"
+      name: "HK2 Целевая t° в доме"
     heating_circuit_2_room_temperature:
-      name: "HK2 Raumisttemperatur"
+      name: "HK2 t° в доме"
     heating_circuit_2_pump_power:
-      name: "HK2 Pumpenleistung"
+      name: "HK2 Мощность насоса"
     heating_circuit_2_mixer_position:
-      name: "HK2 Mischerstellung"
+      name: "HK2 Положение смесителя"
     heating_circuit_2_curve_p10:
-      name: "HK2 Heizkurve +10 °C"
+      name: "HK2 Кривая нагрева +10 °C"
     heating_circuit_2_curve_0:
-      name: "HK2 Heizkurve 0 °C"
+      name: "HK2 Кривая нагрева 0 °C"
     heating_circuit_2_curve_n10:
-      name: "HK2 Heizkurve -10 °C"
+      name: "HK2 Кривая нагрева -10 °C"
     ww_target_temperature:
-      name: "Warmwassersolltemperatur"
+      name: "ГВС Целевая t°"
     ww_temperature:
-      name: "Warmwasseristtemperatur"
+      name: "ГВС t°"
     boiler_target_temperature:
-      name: "Kesselvorlaufsolltemperatur"
+      name: "Целевая t° котла"
     boiler_temperature:
-      name: "Kesselvorlaufisttemperatur"
+      name: "t° котла"
     boiler_turn_on_temperature:
-      name: "Brennereinschalttemperatur"
+      name: "t° включения котла"
     boiler_turn_off_temperature:
-      name: "Brennerausschalttemperatur"
+      name: "t° выключения котла"
     exhaust_gas_temperature:
-      name: "Abgastemperatur"
+      name: "t° выхлопных газов"
     outdoor_temperature:
-      name: "Aussentemperatur"
+      name: "t° на улице"
     attenuated_outdoor_temperature:
-      name: "Gedaempfte Aussentemperatur"
+      name: "Сглаженная t° на улице"
     boiler_runtime_1:
-      name: "Brennerlaufzeit 1"
+      name: "Время работы горелки К1"
     boiler_runtime_2:
-      name: "Brennerlaufzeit 2"
+      name: "Время работы горелки К2"
 
 
   - platform: wifi_signal
@@ -472,4 +464,4 @@ switch:
 text_sensor:
   - platform: km271_wifi
     firmware_version:
-      name: "Firmwareversion Steuerung"
+      name: "Firmware_version"
