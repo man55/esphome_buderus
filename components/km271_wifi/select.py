@@ -82,7 +82,7 @@ CONFIG_SCHEMA = (
             cv.GenerateID(CONF_KM271_ID): cv.use_id(KM271),
             cv.Optional(CONF_HC1_LOWERING_TYPE): select.SELECT_SCHEMA.extend({
                 cv.GenerateID(): cv.declare_id(BuderusParamSelect),
-                cv.Optional(CONF_OPTIONS, default={0: 'Выкл.', 1: 'Понижение', 2: 'Room hold', 3: 'Outside stop'}): ensure_option_map
+                cv.Optional(CONF_OPTIONS, default={0: 'Выкл', 1: 'Понижение', 2: 'Room hold', 3: 'Outside stop'}): ensure_option_map
             }),
             cv.GenerateID(CONF_KM271_ID): cv.use_id(KM271),
             cv.Optional(CONF_HC1_HEATINGS_TYPE): select.SELECT_SCHEMA.extend({
@@ -107,7 +107,7 @@ CONFIG_SCHEMA = (
             cv.GenerateID(CONF_KM271_ID): cv.use_id(KM271),
             cv.Optional(CONF_HC2_LOWERING_TYPE): select.SELECT_SCHEMA.extend({
                 cv.GenerateID(): cv.declare_id(BuderusParamSelect),
-                cv.Optional(CONF_OPTIONS, default={0: 'Выкл.', 1: 'Понижение', 2: 'Room hold', 3: 'Outside stop'}): ensure_option_map
+                cv.Optional(CONF_OPTIONS, default={0: 'Выкл', 1: 'Понижение', 2: 'Room hold', 3: 'Outside stop'}): ensure_option_map
             }),
             cv.GenerateID(CONF_KM271_ID): cv.use_id(KM271),
             cv.Optional(CONF_HC2_HEATINGS_TYPE): select.SELECT_SCHEMA.extend({
@@ -117,11 +117,11 @@ CONFIG_SCHEMA = (
 
             cv.Optional(CONF_WW_OPMODE): select.SELECT_SCHEMA.extend({
                 cv.GenerateID(): cv.declare_id(BuderusParamSelect),
-                cv.Optional(CONF_OPTIONS, default={0: 'Выкл.', 1: 'Вкл.', 2: 'Авто'}): ensure_option_map
+                cv.Optional(CONF_OPTIONS, default={0: 'Выкл', 1: 'Вкл', 2: 'Авто'}): ensure_option_map
             }),
             cv.Optional(CONF_WW_CIRC_PUMP_INTERVALL): select.SELECT_SCHEMA.extend({
                 cv.GenerateID(): cv.declare_id(BuderusParamSelect),
-                cv.Optional(CONF_OPTIONS, default={0: 'Выкл.', 1: '1 раз/час', 2: '2 раза/час', 3: '3 раза/час', 4: '4 раза/час', 5: '5 раза/час', 6: '6 раза/час', 7: 'Всегда вкл.'}): ensure_option_map
+                cv.Optional(CONF_OPTIONS, default={0: 'Выкл', 1: '1 раз/ч', 2: '2 раза/ч', 3: '3 раза/ч', 4: '4 раза/ч', 5: '5 раза/ч', 6: '6 раза/ч', 7: 'Всегда вкл'}): ensure_option_map
             })
 
         }
