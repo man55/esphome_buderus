@@ -1,11 +1,12 @@
 substitutions:
-  name: "buderus-km271"
-
+  node_name: buderus-km271
+  friendly_name: Buderus
+  
 esphome:
-  name: "${name}"
+  name: buderus-km271
   # Automatically add the mac address to the name
   # so you can use a single firmware for all devices
-  # name_add_mac_suffix: true
+  name_add_mac_suffix: false
 
   platformio_options:
     upload_speed: 921600
@@ -34,16 +35,11 @@ ota:
 #  password: "xxx"
 
 wifi:
-#  ssid: "test"
-#  password: "testtest"
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "KM271 Fallback Hotspot"
-    password: ""
-
-dashboard_import:
-  package_import_url: github://man55/esphome_buderus/components/km271_wifi/km271-for-friends.yaml@main
+  networks:
+  - ssid: !secret wifi_ssid2
+    password: !secret wifi_password2
+  - ssid: !secret wifi_ssid
+    password: !secret wifi_password
 
 captive_portal:
 #  keep_user_credentials: true
@@ -105,36 +101,36 @@ binary_sensor:
   - platform: km271_wifi
     # Betriebswerte 1 HK1
     heating_circuit_1_switch_off_optimization:
-      name: "HK1 Оптимизация отключения"
+      name: "Оптимизация отключения"
     heating_circuit_1_switch_on_optimization:
-      name: "HK1 Оптимизация включения"
+      name: "Оптимизация включения"
     heating_circuit_1_automatic:
-      name: "HK1 Авторежим"
+      name: "Авторежим"
     heating_circuit_1_ww_priority_processing:
-      name: "HK1 Warmwasservorrang"
+      name: "Приоритет ГВС"
     heating_circuit_1_screed_drying:
-      name: "HK1 Приоритет ГВС"
+      name: "Сушка стяжки"
     heating_circuit_1_holiday:
-      name: "HK1 Отпуск"
+      name: "Отпуск"
     heating_circuit_1_antifreeze:
-      name: "HK1 Защита от замерзания"
+      name: "Защита от замерзания"
     heating_circuit_1_manually:
-      name: "HK1 Ручной режим"
+      name: "Ручной режим"
     # Betriebswerte 2 HK1
     heating_circuit_1_summer:
-      name: "HK1 Летний режим"
+      name: "Летний режим"
     heating_circuit_1_day:
-      name: "HK1 Дневной режим"
+      name: "Дневной режим"
     heating_circuit_1_no_comm_with_rc:
-      name: "HK1 Нет связи с ПУ"
+      name: "Нет связи с ПУ"
     heating_circuit_1_rc_faulty:
-      name: "HK1 ПУ неисправность"
+      name: "ПУ неисправность"
     heating_circuit_1_flow_sensor_error:
-      name: "HK1 Ошибка расходомера"
+      name: "Ошибка расходомера"
     heating_circuit_1_max_flow:
-      name: "HK1 Максимальный поток"
+      name: "Максимальный поток"
     heating_circuit_1_external_fault_input:
-      name: "HK1 Внешняя ошибка"
+      name: "Внешняя ошибка"
     # Betriebswerte 1 HK2
     heating_circuit_2_switch_off_optimization:
       name: "HK2 Оптимизация отключения"
